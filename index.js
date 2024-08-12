@@ -50,25 +50,24 @@ class Svg {
     }
 
     generateSvgContent(textColor, shapeColor) {
-        let svgContent = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">`;
-
+        let svgContent = '';
+        let textContent = this.textElement;
         switch (this.shapeElement) {
             case 'circle':
-                const circle = new Circle(150, 100, 50, shapeColor);
+                const circle = new Circle(textContent, textColor, shapeColor);
                 svgContent += circle.render();
                 break;
             case 'triangle':
-                const triangle = new Triangle(150, 100, 50, shapeColor);
+                const triangle = new Triangle(textContent, textColor, shapeColor);
                 svgContent += triangle.render();
                 break;
             case 'square':
-                const square = new Square(150, 100, 50, shapeColor);
+                const square = new Square(textContent, textColor, shapeColor);
                 svgContent += square.render();
                 break;
         }
 
-        svgContent += `<text x="150" y="125" font-size="60" fill="${textColor}" text-anchor="middle">${this.textElement}</text>`;
-        svgContent += `</svg>`;
+        
 
         return svgContent;
     }
