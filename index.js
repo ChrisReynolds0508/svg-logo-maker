@@ -74,7 +74,9 @@ class Svg {
 
     saveSvgToFile(svgContent) {
         filesystem.writeFileSync('logo.svg', svgContent);
+        
     }
+
 }
 
 const svgLogoMaker = new Svg();
